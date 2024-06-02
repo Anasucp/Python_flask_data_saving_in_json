@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form</title>
+</head>
+<body>
+
+	<h1>Add The person</h1>
+
+	<form id="person-form" action="/add_person" method="post">
+		<label for="first_name">First Name:</label>
+		<input type="text" id="first_name" name="first_name">
+
+		<br>
+
+		<label for="last_name">Last Name:</label>
+		<input type="text" id="last_name" name="last_name">
+
+		<br>
+
+		<label for="Phone"> Phone Number:</label>
+		<input type="text" name="phone" id="phone">
+
+		<br>
+
+		<label for="email">E-mail:</label>
+		<input type="email" name="email" id="email">
+
+		<br>
+
+		<button type="submit">Add the person</button>
+
+	</form>
+
+	<h2> List of person</h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>last Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			 <!-- Loop through the persons data and create a row for each person -->
+            {% for person in persons %}
+            <tr>
+                <td>{{ person.first_name }}</td>
+                <td>{{ person.last_name }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.phone }}</td>
+            </tr>
+            {% endfor %}
+		</tbody>
+
+
+	</table>
+	
+</body>
+</html>
