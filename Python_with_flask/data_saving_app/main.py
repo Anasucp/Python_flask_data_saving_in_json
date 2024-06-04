@@ -26,7 +26,13 @@ def add_person():
 	write_data(persons)
 	return redirect(url_for('index'))
 
-
+@app.route('/delete_person/<int:person_index>', methods=['POST'])
+def delete_person(person_index):
+    persons = read_data()
+    if 0 <= person_index < len(persons):
+        del persons[person_index]
+    write_data(persons)
+    return redirect(url_for('index'))
 
 
 
